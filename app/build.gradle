@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -20,6 +22,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    kapt {
+        useBuildCache = true
+        correctErrorTypes = true
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        androidTest.java.srcDirs += "src/test-common/java"
+        test.java.srcDirs += "src/test-common/java"
+    }
 }
 
 dependencies {
@@ -28,7 +40,75 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.0.0-rc02'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'com.google.android.material:material:1.0.0-rc01'
+
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0-rc02'
+
+    //test
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
+    testImplementation 'org.mockito:mockito-core:2.21.0'
+    androidTestImplementation 'org.mockito:mockito-android:2.21.0'
+
+    //lifecycle
+    def lifecycle_version = "2.0.0-rc01"
+    // ViewModel and LiveData
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+    testImplementation "androidx.arch.core:core-testing:$lifecycle_version"
+
+    //paging
+    implementation 'androidx.paging:paging-runtime:2.0.0-rc01'
+
+    //room
+    def room_version = "2.0.0-rc01"
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    testImplementation "androidx.room:room-testing:$room_version"
+
+    //work manager
+    def work_version = "1.0.0-alpha06"
+    //implementation "android.arch.work:work-runtime:$work_version"
+    implementation 'android.arch.work:work-runtime-ktx:1.0.0-alpha07'
+    androidTestImplementation "android.arch.work:work-testing:$work_version"
+
+
+    //ktx
+    def ktx_version = "1.0.0-rc02"
+    implementation "androidx.core:core-ktx:$ktx_version"
+    implementation "androidx.fragment:fragment-ktx:$ktx_version"
+    implementation "androidx.collection:collection-ktx:$ktx_version"
+
+    //custom tab
+    implementation 'androidx.browser:browser:1.0.0-rc02'
+
+    // Koin for Android
+    implementation 'org.koin:koin-android:1.0.0-beta-9'
+    implementation "org.koin:koin-androidx-viewmodel:1.0.0-beta-3"
+
+    //error handler
+    implementation 'com.github.RohitSurwase.UCE-Handler:uce_handler:1.3'
+
+    //joda time
+    implementation 'joda-time:joda-time:2.9.9'
+
+    implementation('com.github.GrenderG:Toasty:1.3.0') {
+        exclude module: 'support-v4'
+    }
+
+    //timber for logger
+    implementation 'com.jakewharton.timber:timber:4.6.0'
+
+    //gson
+    implementation 'com.google.code.gson:gson:2.8.5'
+
+    //retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+
+    //ok Http3
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.0'
+    implementation 'com.jakewharton.picasso:picasso2-okhttp3-downloader:1.1.0'
+
+    //picasso
+    implementation 'com.squareup.picasso:picasso:2.5.2'
 }
