@@ -11,6 +11,21 @@ import retrofit2.http.GET
 
 interface RetrofitInterface{
 
+    @GET("comments/")
+    fun getComments(): Call<List<PojoKt>>
+
     @GET("photos/")
-    fun getData(): Call<List<PojoKt>>
+    fun getImage(): Call<List<PojoKt>>
+
+    @GET("photos/")
+    fun getPost(): Call<List<PojoKt>>
+
+    @GET("photos/")
+    fun getUser(): Call<List<PojoKt>>
+
+    @GET("todos/")
+    fun getTodo(): Call<List<PojoKt>>
+
+    @GET("albums/")
+    fun getAlbums(): Call<List<PojoKt>>
 }
