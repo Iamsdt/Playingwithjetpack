@@ -39,6 +39,14 @@ class WorkManagerBasicActivity : AppCompatActivity() {
             manager.cancelAllWorkByTag("insert")
         }
 
+        delete_btn.setOnClickListener {
+            deleteWork()
+        }
+
+        delete_btn_cancel.setOnClickListener {
+            manager.cancelAllWorkByTag("delete")
+        }
+
         manager.getStatusesByTag("insert").observe(this, Observer { it ->
             if (it.isNotEmpty() && it[0].tags.contains("insert")) {
                 val state = it[0].state
