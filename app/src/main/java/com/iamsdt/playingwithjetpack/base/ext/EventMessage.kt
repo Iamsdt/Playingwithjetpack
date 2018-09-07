@@ -4,7 +4,7 @@
  * Copyright (c) 9/1/18 6:21 PM Shudipto Trafder
  */
 
-package com.iamsdt.playingwithjetpack.ext
+package com.iamsdt.playingwithjetpack.base.ext
 
 class EventMessage(var key:String = "",
                    var message: String = "",

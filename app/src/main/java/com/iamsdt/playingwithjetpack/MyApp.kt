@@ -1,9 +1,9 @@
 package com.iamsdt.playingwithjetpack
 
 import android.app.Application
-import com.iamsdt.playingwithjetpack.di.dbModule
-import com.iamsdt.playingwithjetpack.di.networkModule
-import com.iamsdt.playingwithjetpack.ext.DebugLogTree
+import com.iamsdt.playingwithjetpack.base.di.dbModule
+import com.iamsdt.playingwithjetpack.base.di.networkModule
+import com.iamsdt.playingwithjetpack.base.ext.DebugLogTree
 import com.rohitss.uceh.UCEHandler
 import org.koin.android.ext.android.startKoin
 import timber.log.Timber

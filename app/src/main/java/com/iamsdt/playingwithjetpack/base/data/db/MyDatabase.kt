@@ -4,16 +4,16 @@
  * Copyright (c) 9/1/18 5:49 PM Shudipto Trafder
  */
 
-package com.iamsdt.playingwithjetpack.data.db
+package com.iamsdt.playingwithjetpack.base.data.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.iamsdt.playingwithjetpack.data.retrofit.PojoKt
+import com.iamsdt.playingwithjetpack.base.data.retrofit.pojo.Photos
 
 
-@Database(entities = [(PojoKt::class)],version = 1,
+@Database(entities = [(Photos::class)],version = 1,
         //don't export database
         exportSchema = false)
 abstract class MyDatabase: RoomDatabase(){

@@ -7,7 +7,7 @@
 package com.iamsdt.playingwithjetpack.work.work
 
 import androidx.work.Worker
-import com.iamsdt.playingwithjetpack.data.db.RetDao
+import com.iamsdt.playingwithjetpack.base.data.db.RetDao
 import org.koin.standalone.KoinComponent
 import org.koin.standalone.inject
 import timber.log.Timber

@@ -4,7 +4,7 @@
  * Copyright (c) 9/1/18 12:18 AM Shudipto Trafder
  */
 
-package com.iamsdt.playingwithjetpack.ext
+package com.iamsdt.playingwithjetpack.base.ext
 
 import android.content.Intent
 import android.net.Uri

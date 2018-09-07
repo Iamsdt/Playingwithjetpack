@@ -1,4 +1,4 @@
-package com.iamsdt.playingwithjetpack.main
+package com.iamsdt.playingwithjetpack.base.main
 
 import android.view.LayoutInflater
 import android.view.View

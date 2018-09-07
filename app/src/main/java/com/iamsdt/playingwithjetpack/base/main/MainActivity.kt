@@ -1,10 +1,10 @@
-package com.iamsdt.playingwithjetpack.main
+package com.iamsdt.playingwithjetpack.base.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.iamsdt.playingwithjetpack.R
-import com.iamsdt.playingwithjetpack.ext.toNextActivity
+import com.iamsdt.playingwithjetpack.base.ext.toNextActivity
 import com.iamsdt.playingwithjetpack.work.WorkManagerBasicActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*

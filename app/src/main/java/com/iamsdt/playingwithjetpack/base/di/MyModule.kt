@@ -4,13 +4,13 @@
  * Copyright (c) 9/1/18 5:57 PM Shudipto Trafder
  */
 
-package com.iamsdt.playingwithjetpack.di
+package com.iamsdt.playingwithjetpack.base.di
 
 import androidx.room.Room
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.iamsdt.playingwithjetpack.data.db.MyDatabase
-import com.iamsdt.playingwithjetpack.data.retrofit.RetrofitInterface
+import com.iamsdt.playingwithjetpack.base.data.db.MyDatabase
+import com.iamsdt.playingwithjetpack.base.data.retrofit.RetrofitInterface
 import com.jakewharton.picasso.OkHttp3Downloader
 import com.squareup.picasso.Picasso
 import okhttp3.Cache

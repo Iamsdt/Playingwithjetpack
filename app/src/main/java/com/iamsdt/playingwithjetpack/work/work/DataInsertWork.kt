@@ -7,9 +7,9 @@
 package com.iamsdt.playingwithjetpack.work.work
 
 import androidx.work.Worker
-import com.iamsdt.playingwithjetpack.data.db.RetDao
-import com.iamsdt.playingwithjetpack.data.retrofit.PojoKt
-import com.iamsdt.playingwithjetpack.data.retrofit.RetrofitInterface
+import com.iamsdt.playingwithjetpack.base.data.db.RetDao
+import com.iamsdt.playingwithjetpack.base.data.retrofit.RetrofitInterface
+import com.iamsdt.playingwithjetpack.base.data.retrofit.pojo.Photos
 import org.koin.standalone.KoinComponent
 import org.koin.standalone.inject
 import retrofit2.Call
@@ -29,9 +29,9 @@ class DataInsertWork : Worker(), KoinComponent {
 
         var result = Result.FAILURE
 
-        retrofitInterface.getData().enqueue(object : Callback<List<PojoKt>> {
+        retrofitInterface.getImage().enqueue(object : Callback<List<Photos>> {
 
-            override fun onFailure(call: Call<List<PojoKt>>?, t: Throwable?) {
+            override fun onFailure(call: Call<List<Photos>>?, t: Throwable?) {
                 Timber.e(t, "data is not coming from server")
 
                 //return with retry request
@@ -40,9 +40,9 @@ class DataInsertWork : Worker(), KoinComponent {
             }
 
             //response
-            override fun onResponse(call: Call<List<PojoKt>>?, response: Response<List<PojoKt>>?) {
+            override fun onResponse(call: Call<List<Photos>>?, response: Response<List<Photos>>?) {
 
-                response?.let {
+                response?.let { it ->
                     if (it.isSuccessful) {
                         it.body()?.let { list ->
                             if (list.isNotEmpty()) {
@@ -52,18 +52,18 @@ class DataInsertWork : Worker(), KoinComponent {
                                     insert = dao.insert(it)
                                 }
 
-                                if (insert > 0){
+                                if (insert > 0) {
                                     Timber.i("Data inserted")
                                     result = Result.SUCCESS
                                     Timber.i("Result.SUCCESS")
                                 }
-                            } else{
+                            } else {
                                 result = Result.RETRY
                                 Timber.i("Result.RETRY")
                             }
                         }
 
-                    } else{
+                    } else {
                         result = Result.RETRY
                         Timber.i("Result.RETRY")
                     }
