@@ -14,10 +14,10 @@ import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.iamsdt.playingwithjetpack.R
-import com.iamsdt.playingwithjetpack.base.data.retrofit.pojo.Posts
+import com.iamsdt.playingwithjetpack.base.data.retrofit.pojo.Photos
 import kotlinx.android.synthetic.main.page_item.view.*
 
-class PAdapter : PagedListAdapter<Posts, PAdapter.PageVH>(diffCallback) {
+class PAdapter : PagedListAdapter<Photos, PAdapter.PageVH>(diffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PageVH {
         val view = LayoutInflater.from(parent.context)
@@ -27,7 +27,7 @@ class PAdapter : PagedListAdapter<Posts, PAdapter.PageVH>(diffCallback) {
     }
 
     override fun onBindViewHolder(holder: PageVH, position: Int) {
-        val posts: Posts? = getItem(position)
+        val posts: Photos? = getItem(position)
         //handle null value
         //if post is null then don't bind
         posts?.let(holder::bind)
@@ -35,12 +35,12 @@ class PAdapter : PagedListAdapter<Posts, PAdapter.PageVH>(diffCallback) {
 
 
     companion object {
-        val diffCallback = object : DiffUtil.ItemCallback<Posts>() {
-            override fun areItemsTheSame(oldItem: Posts, newItem: Posts): Boolean {
+        val diffCallback = object : DiffUtil.ItemCallback<Photos>() {
+            override fun areItemsTheSame(oldItem: Photos, newItem: Photos): Boolean {
                 return oldItem.id == newItem.id
             }
 
-            override fun areContentsTheSame(oldItem: Posts, newItem: Posts): Boolean {
+            override fun areContentsTheSame(oldItem: Photos, newItem: Photos): Boolean {
                 return oldItem == newItem
             }
 
@@ -52,14 +52,16 @@ class PAdapter : PagedListAdapter<Posts, PAdapter.PageVH>(diffCallback) {
         private val bodyTV: TextView = view.page_body
 
         //used for future reference
-        var posts: Posts? = null
+        var photos: Photos? = null
 
         //bind with ui
-        fun bind(posts: Posts) {
-            this.posts = posts
+        fun bind(photos: Photos) {
+            this.photos = photos
 
-            titleTV.text = posts.title
-            bodyTV.text = posts.body
+            titleTV.text = photos.title
+            //no sense
+            //just show url
+            bodyTV.text = photos.thumbnailUrl
         }
     }
 }

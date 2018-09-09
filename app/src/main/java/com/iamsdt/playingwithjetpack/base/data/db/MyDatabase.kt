@@ -10,12 +10,16 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.iamsdt.playingwithjetpack.base.data.retrofit.pojo.Photos
-import com.iamsdt.playingwithjetpack.base.data.retrofit.pojo.Posts
+import com.iamsdt.playingwithjetpack.base.data.retrofit.pojo.*
 
 
 @Database(entities = [Photos::class,
-    Posts::class], version = 1,
+    Posts::class,
+    Albums::class,
+    Posts::class,
+    Todos::class,
+    Users::class
+], version = 1,
         //don't export database
         exportSchema = false)
 abstract class MyDatabase : RoomDatabase() {
@@ -23,7 +27,7 @@ abstract class MyDatabase : RoomDatabase() {
 
     abstract val retDao: RetDao
 
-    abstract val postDao:PostDao
+    abstract val postDao: PostDao
 
     companion object {
 

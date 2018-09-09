@@ -11,7 +11,7 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Users(
-        @PrimaryKey(autoGenerate = false)
+        @PrimaryKey
         val id: Int = 0,
         val website: String = "",
         val phone: String = "",

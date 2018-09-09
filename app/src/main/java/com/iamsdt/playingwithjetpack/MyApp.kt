@@ -3,12 +3,13 @@ package com.iamsdt.playingwithjetpack
 import android.app.Application
 import com.iamsdt.playingwithjetpack.base.di.dbModule
 import com.iamsdt.playingwithjetpack.base.di.networkModule
+import com.iamsdt.playingwithjetpack.base.di.viewModel
 import com.iamsdt.playingwithjetpack.base.ext.DebugLogTree
 import com.rohitss.uceh.UCEHandler
 import org.koin.android.ext.android.startKoin
 import timber.log.Timber
 
-class MyApp:Application(){
+class MyApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
@@ -25,7 +26,7 @@ class MyApp:Application(){
                 .build()
 
         //start koin
-        startKoin(this, listOf(dbModule, networkModule))
+        startKoin(this, listOf(dbModule, networkModule, viewModel))
     }
 
 }

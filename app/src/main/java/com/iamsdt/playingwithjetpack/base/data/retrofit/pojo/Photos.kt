@@ -16,7 +16,7 @@ data class Photos(
         @SerializedName("albumId")
         val albumId: Int = 0,
         @SerializedName("id")
-        @PrimaryKey(autoGenerate = false)
+        @PrimaryKey
         val id: Int = 0,
         @SerializedName("title")
         val title: String = "",

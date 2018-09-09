@@ -10,13 +10,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
-import com.iamsdt.playingwithjetpack.base.data.db.PostDao
-import com.iamsdt.playingwithjetpack.base.data.retrofit.pojo.Posts
+import com.iamsdt.playingwithjetpack.base.data.db.RetDao
+import com.iamsdt.playingwithjetpack.base.data.retrofit.pojo.Photos
 
-class PageVM(private val retDao: PostDao) : ViewModel() {
+class PageVM(private val retDao: RetDao) : ViewModel() {
 
 
-    fun getData(): LiveData<PagedList<Posts>> {
+    fun getData(): LiveData<PagedList<Photos>> {
 
         val source = retDao.getData()
 
@@ -33,8 +33,9 @@ class PageVM(private val retDao: PostDao) : ViewModel() {
 
 
     //delete on background thread
-    fun remove(posts: Posts) = ioThread {
-        retDao.delete(posts)
+    fun remove(photos: Photos) = ioThread {
+        retDao.delete(photos)
     }
+
 
 }

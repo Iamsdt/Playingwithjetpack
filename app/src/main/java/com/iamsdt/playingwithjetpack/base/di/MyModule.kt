@@ -11,12 +11,14 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.iamsdt.playingwithjetpack.base.data.db.MyDatabase
 import com.iamsdt.playingwithjetpack.base.data.retrofit.RetrofitInterface
+import com.iamsdt.playingwithjetpack.paging.PageVM
 import com.jakewharton.picasso.OkHttp3Downloader
 import com.squareup.picasso.Picasso
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
+import org.koin.androidx.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -34,7 +36,7 @@ val dbModule = module {
     //build database
     single {
         Room.databaseBuilder(androidContext(),
-                MyDatabase::class.java,"DB")
+                MyDatabase::class.java, "DB")
                 .build()
     }
 }
@@ -100,4 +102,10 @@ val networkModule = module {
     }
 
 
+}
+
+val viewModel = module {
+
+    //provide view model
+    viewModel { PageVM(get()) }
 }

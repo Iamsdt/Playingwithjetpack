@@ -17,6 +17,12 @@ import kotlinx.android.synthetic.main.activity_paging_basic.*
 import kotlinx.android.synthetic.main.content_paging_basic.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
+/**
+In this case, just paging from a database
+and assume that data already present
+in the database
+ */
+
 class PagingBasic : AppCompatActivity() {
 
     val viewModel: PageVM by viewModel()
@@ -45,10 +51,11 @@ class PagingBasic : AppCompatActivity() {
 
     private fun initSwipeToDelete(view: RecyclerView) {
         ItemTouchHelper(object : ItemTouchHelper.Callback() {
+
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
 
                 //access the current post
-                (viewHolder as? PAdapter.PageVH)?.posts?.let {
+                (viewHolder as? PAdapter.PageVH)?.photos?.let {
                     //now remove this
                     viewModel.remove(it)
                 }

@@ -13,7 +13,7 @@ import com.google.gson.annotations.SerializedName
 @Entity
 data class Albums(
         @SerializedName("id")
-        @PrimaryKey(autoGenerate = false)
+        @PrimaryKey
         val id: Int = 0,
         @SerializedName("title")
         val title: String = "",
