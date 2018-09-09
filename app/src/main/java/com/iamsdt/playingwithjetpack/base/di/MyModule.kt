@@ -26,6 +26,9 @@ import java.util.concurrent.TimeUnit
 val dbModule = module {
 
     //get dao
+    single { get<MyDatabase>().postDao }
+
+    //get dao
     single { get<MyDatabase>().retDao }
 
     //build database

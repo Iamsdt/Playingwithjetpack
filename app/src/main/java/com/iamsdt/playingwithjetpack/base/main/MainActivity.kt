@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity(), MainAdapter.Click {
     //add entry to list
     private fun fillList() {
         list.add("Work Manager")
-        list.add("View Model")
+        list.add("Paging")
         list.add("Fragment")
         list.add("Data Binding")
         list.add("Paging")

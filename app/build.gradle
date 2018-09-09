@@ -72,7 +72,6 @@ dependencies {
     implementation 'android.arch.work:work-runtime-ktx:1.0.0-alpha07'
     androidTestImplementation "android.arch.work:work-testing:$work_version"
 
-
     //ktx
     def ktx_version = "1.0.0-rc02"
     implementation "androidx.core:core-ktx:$ktx_version"
