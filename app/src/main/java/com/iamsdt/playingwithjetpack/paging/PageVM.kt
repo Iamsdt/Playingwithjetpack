@@ -31,7 +31,6 @@ class PageVM(private val retDao: RetDao) : ViewModel() {
         return LivePagedListBuilder(source, config).build()
     }
 
-
     //delete on background thread
     fun remove(photos: Photos) = ioThread {
         retDao.delete(photos)

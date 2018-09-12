@@ -7,7 +7,13 @@
 package com.iamsdt.playingwithjetpack.paging
 
 import android.os.AsyncTask
+import android.os.Handler
+import android.os.Looper
 
 fun ioThread(f: () -> Unit) {
     AsyncTask.execute(f)
+}
+
+fun mainThread(f: () -> Unit) {
+    Handler(Looper.getMainLooper()).post(f)
 }
