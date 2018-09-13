@@ -4,7 +4,7 @@
  * Copyright (c) 9/9/18 9:51 PM Shudipto Trafder
  */
 
-package com.iamsdt.playingwithjetpack.paging
+package com.iamsdt.playingwithjetpack.base.ext
 
 import android.os.AsyncTask
 import android.os.Handler
