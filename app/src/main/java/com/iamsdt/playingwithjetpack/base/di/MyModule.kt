@@ -59,6 +59,15 @@ val networkModule = module {
                 .build()
     }
 
+    single(name = "Reddit") {
+        Retrofit.Builder()
+                .baseUrl("https://jsonplaceholder.typicode.com/")
+                .addConverterFactory(
+                        GsonConverterFactory.create(get() as Gson))
+                .client(get() as OkHttpClient)
+                .build()
+    }
+
     //gson
     single {
         GsonBuilder().create()

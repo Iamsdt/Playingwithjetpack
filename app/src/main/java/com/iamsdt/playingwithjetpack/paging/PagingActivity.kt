@@ -20,6 +20,7 @@ import com.iamsdt.playingwithjetpack.base.ext.toNextActivity
 import com.iamsdt.playingwithjetpack.work.work.DataInsertWork
 import kotlinx.android.synthetic.main.activity_paging.*
 import org.koin.android.ext.android.inject
+import retrofit2.Retrofit
 
 class PagingActivity : AppCompatActivity() {
 
@@ -28,6 +29,8 @@ class PagingActivity : AppCompatActivity() {
 
     //data accessing object
     private val retDao: RetDao by inject()
+
+    private val retrofit: Retrofit by inject(name = "Reddit")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
