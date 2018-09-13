@@ -11,6 +11,8 @@ import androidx.lifecycle.Observer
 import java.util.concurrent.CountDownLatch
 import java.util.concurrent.TimeUnit
 
+
+//test live data
 fun <T> LiveData<T>.blockingObserve(): T? {
     var value: T? = null
     val latch = CountDownLatch(1)

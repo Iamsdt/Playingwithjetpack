@@ -8,6 +8,7 @@ package com.iamsdt.playingwithjetpack.paging
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.work.Constraints
 import androidx.work.NetworkType
 import androidx.work.OneTimeWorkRequestBuilder
@@ -21,8 +22,10 @@ import org.koin.android.ext.android.inject
 
 class PagingActivity : AppCompatActivity() {
 
+    //instance of work manager
     private lateinit var manager: WorkManager
 
+    //data accessing object
     private val retDao: RetDao by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,8 +38,26 @@ class PagingActivity : AppCompatActivity() {
         page_db.setOnClickListener {
             startDatabase()
         }
+
+
+        //ensure all data present in db
+        manager.getStatusesByTag("insert").observe(this, Observer { it ->
+            if (it?.isNotEmpty() == true) {
+
+                //just one task under this tag
+                //so access [0] of the list
+                if (it[0].state.isFinished) {
+                    toNextActivity(PagingBasic::class)
+                }
+
+            }
+        })
     }
 
+
+    /*
+        Start work to insert database
+     */
     private fun startDatabase() {
         ioThread {
 
@@ -45,14 +66,10 @@ class PagingActivity : AppCompatActivity() {
             if (list.isEmpty()) {
                 startInsert()
             }
-
-            mainThread {
-                toNextActivity(PagingBasic::class)
-            }
-
         }
     }
 
+    // Start work command
     private fun startInsert() {
         //cons
         val myConstraints = Constraints.Builder()

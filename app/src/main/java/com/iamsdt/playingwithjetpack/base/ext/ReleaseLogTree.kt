@@ -10,6 +10,8 @@ import android.util.Log
 import timber.log.Timber
 
 
+//release log class for timber
+
 class ReleaseLogTree : Timber.Tree() {
 
     private val maxLogLength = 4000

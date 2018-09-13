@@ -12,6 +12,10 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlin.reflect.KClass
 
 
+/*
+    run thread and go to the next activity
+    better use case in splash activity
+ */
 fun AppCompatActivity.runThread(timer: Long, clazz: KClass<out AppCompatActivity>) =
         Thread {
             try {
@@ -23,6 +27,12 @@ fun AppCompatActivity.runThread(timer: Long, clazz: KClass<out AppCompatActivity
                 finish()
             }
         }.start()
+
+/*
+ Go to next activity with intent
+ just pass the next activity class
+ more option is available
+ */
 
 fun AppCompatActivity.toNextActivity(
         clazz: KClass<out AppCompatActivity>,
@@ -42,7 +52,9 @@ fun AppCompatActivity.toNextActivity(
     }
 }
 
-
+/*
+    Chrome custom tabs
+ */
 //fun AppCompatActivity.customTab(link: String) {
 //    val builder = CustomTabsIntent.Builder()
 //    builder.setToolbarColor(R.attr.colorPrimary)
@@ -54,6 +66,9 @@ fun AppCompatActivity.toNextActivity(
 //    customTabsIntent.launchUrl(this, Uri.parse(link))
 //}
 
+/*
+Send email with activity extension function
+ */
 fun AppCompatActivity.sendEmail(
         email: String,
         subject: String) {

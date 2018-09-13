@@ -10,10 +10,15 @@ import android.os.AsyncTask
 import android.os.Handler
 import android.os.Looper
 
+
+// run code in background
+//take function as parameter
 fun ioThread(f: () -> Unit) {
     AsyncTask.execute(f)
 }
 
-fun mainThread(f: () -> Unit) {
+//run code in the ui thread
+//take function as parameter
+fun uiThread(f: () -> Unit) {
     Handler(Looper.getMainLooper()).post(f)
 }
