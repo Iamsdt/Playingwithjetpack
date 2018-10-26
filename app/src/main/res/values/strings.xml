@@ -3,4 +3,6 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_work_manager_basic">WorkManagerBasicActivity</string>
     <string name="title_activity_paging_basic">PagingBasic</string>
+    <string name="title_activity_note">NoteActivity</string>
+    <string name="title_activity_note_add">NoteAddActivity</string>
 </resources>

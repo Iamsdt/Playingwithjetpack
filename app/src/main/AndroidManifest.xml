@@ -30,7 +30,15 @@
             android:name=".paging.PagingBasic"
             android:label="@string/title_activity_paging_basic"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".paging.PagingActivity"></activity>
+        <activity android:name=".paging.PagingActivity" />
+        <activity
+            android:name=".databinding.NoteActivity"
+            android:label="@string/title_activity_note"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".databinding.NoteAddActivity"
+            android:label="@string/title_activity_note_add"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
