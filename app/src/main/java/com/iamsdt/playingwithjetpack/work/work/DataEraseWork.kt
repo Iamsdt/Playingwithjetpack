@@ -6,13 +6,16 @@
 
 package com.iamsdt.playingwithjetpack.work.work
 
+import android.content.Context
 import androidx.work.Worker
+import androidx.work.WorkerParameters
 import com.iamsdt.playingwithjetpack.base.data.db.RetDao
 import org.koin.standalone.KoinComponent
 import org.koin.standalone.inject
 import timber.log.Timber
 
-class DataEraseWork : Worker(), KoinComponent {
+class DataEraseWork(context:Context,params: WorkerParameters) :
+        Worker(context,params), KoinComponent {
 
     private val dao: RetDao by inject()
 

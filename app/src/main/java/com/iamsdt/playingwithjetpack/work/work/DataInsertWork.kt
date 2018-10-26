@@ -6,7 +6,9 @@
 
 package com.iamsdt.playingwithjetpack.work.work
 
+import android.content.Context
 import androidx.work.Worker
+import androidx.work.WorkerParameters
 import com.iamsdt.playingwithjetpack.base.data.db.RetDao
 import com.iamsdt.playingwithjetpack.base.data.retrofit.RetrofitInterface
 import com.iamsdt.playingwithjetpack.base.data.retrofit.pojo.Photos
@@ -17,7 +19,8 @@ import retrofit2.Callback
 import retrofit2.Response
 import timber.log.Timber
 
-class DataInsertWork : Worker(), KoinComponent {
+class DataInsertWork(context: Context, params: WorkerParameters) :
+        Worker(context, params), KoinComponent {
 
     private val retrofitInterface: RetrofitInterface by inject()
 

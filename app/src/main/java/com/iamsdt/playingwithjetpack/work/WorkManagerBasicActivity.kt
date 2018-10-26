@@ -47,27 +47,27 @@ class WorkManagerBasicActivity : AppCompatActivity() {
             manager.cancelAllWorkByTag("delete")
         }
 
-        manager.getStatusesByTag("insert").observe(this, Observer { it ->
-            if (it.isNotEmpty() && it[0].tags.contains("insert")) {
-                val state = it[0].state
-                photo_tv.addStr(state.toString())
+//        manager.getStatusesByTag("insert").observe(this, Observer { it ->
+//            if (it.isNotEmpty() && it[0].tags.contains("insert")) {
+//                val state = it[0].state
+//                photo_tv.addStr(state.toString())
+//
+//                if (state.isFinished) {
+//                    showToast(ToastType.SUCCESSFUL, "Complete")
+//                }
+//            }
+//        })
 
-                if (state.isFinished) {
-                    showToast(ToastType.SUCCESSFUL, "Complete")
-                }
-            }
-        })
-
-        manager.getStatusesByTag("delete").observe(this, Observer { it ->
-            if (it.isNotEmpty() && it[0].tags.contains("delete")) {
-                val state = it[0].state
-                photo_tv.addStr(state.toString())
-
-                if (state.isFinished) {
-                    showToast(ToastType.SUCCESSFUL, "Complete")
-                }
-            }
-        })
+//        manager.getStatusesByTag("delete").observe(this, Observer { it ->
+//            if (it.isNotEmpty() && it[0].tags.contains("delete")) {
+//                val state = it[0].state
+//                photo_tv.addStr(state.toString())
+//
+//                if (state.isFinished) {
+//                    showToast(ToastType.SUCCESSFUL, "Complete")
+//                }
+//            }
+//        })
 
 
     }
